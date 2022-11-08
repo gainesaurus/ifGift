@@ -1,0 +1,11 @@
+{
+  "name": "ifGift",
+  "short_name": "ifGift",
+  "icons": [{
+
+  }],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#F4FAF9"
+}
