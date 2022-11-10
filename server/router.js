@@ -1,8 +1,8 @@
 const Router = require('koa-router');
 const router = new Router();
-const message = require('./controllers/message'); //various controllers
+const profile = require('./controllers/profile');
 
-router.get('/messages', message.getMessages); // the CRUD on each controller
-router.post('/messages', message.postMessage);
+router.get('/profile', profile.getProfileInfo);
+router.post('/profile', profile.insertProfile);
 
 module.exports = router;
