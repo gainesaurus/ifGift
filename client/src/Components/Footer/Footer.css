@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  background-color: #fff;
+  height: 10vh;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  box-shadow: -2px 0px 6px 0.5px rgba(17, 138, 178, 0.2);
+}
+
+.nav-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-weight: bolder;
+  stroke: #757575;
+  stroke-width: 0.4;
+  color: #757575;
+  margin: 5px 10px;
+  padding: 10px 15px;
+}
+
+.nav-btn:hover {
+  color: #EF476F;
+  stroke: #EF476F;
+  background-color: #06D6A0;
+  border-radius: 6px;
+}
+
+.btn-name {
+  display: flex;
+  font-size: 0.8rem;
+  margin-top: 2px;
+  justify-content: center;
+}
