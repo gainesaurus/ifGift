@@ -1,4 +1,5 @@
 import './MyListItem.css';
+import { useState } from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -8,8 +9,20 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 function MyListItem({ list }) {
+  const [myListName, setMyListName] = useState('');
+  const [myListText, setMyListText] = useState('');
+
+  function handleMyListNameChange(e) {
+    setMyListName(e.target.value);
+  };
+
+  function handleMyListTextChange(e) {
+    setMyListText(e.target.value);
+  };
+
   
   return (
     <Accordion className='list-container' allowToggle>
@@ -17,9 +30,9 @@ function MyListItem({ list }) {
         {({ isExpanded }) => (
         <>
           <h1>
-            <AccordionButton>
+            <AccordionButton className="acc-btn">
               <Box className="list-title">
-                <h1 className='list-recipient'>Joshua Smith</h1>
+                <h1 className='list-recipient'>{myListName}</h1>
                 <h2 className='recipient-username'>joshyjosh</h2>
               </Box>
               {isExpanded ? (
@@ -31,20 +44,9 @@ function MyListItem({ list }) {
           </h1>
           <AccordionPanel className="list-page">
             <div className="note-top"></div>
-            <p className='list-text'>
-              Remote control car - for a toddler! <br></br>
-              https://www.amazon.com/Kannove-Remote-Control-Toddlers-Birthday/dp/B09ZRM5SPC/ref=sr_1_17?keywords=toddler+remote+control+car&qid=1668097216&sr=8-17
-              <br></br><br></br>
-              Remote control car - for a toddler! <br></br>
-              https://www.amazon.com/Kannove-Remote-Control-Toddlers-Birthday/dp/B09ZRM5SPC/ref=sr_1_17?keywords=toddler+remote+control+car&qid=1668097216&sr=8-17
-              <br></br><br></br>
-              Remote control car - for a toddler! <br></br>
-              https://www.amazon.com/Kannove-Remote-Control-Toddlers-Birthday/dp/B09ZRM5SPC/ref=sr_1_17?keywords=toddler+remote+control+car&qid=1668097216&sr=8-17
-              <br></br><br></br>
-              Remote control car - for a toddler! <br></br>
-              https://www.amazon.com/Kannove-Remote-Control-Toddlers-Birthday/dp/B09ZRM5SPC/ref=sr_1_17?keywords=toddler+remote+control+car&qid=1668097216&sr=8-17
-            </p>
-            <p className='list-text'></p>
+            <input className='list-recipient-edit' type='text' value={myListName} onChange={handleMyListNameChange} placeholder= "Title: Who is this list for?" />
+            {/* <textarea className='list-text' type='text' value={myListText} onChange={handleMyListTextChange} placeholder= "List some gift ideas.." /> */}
+            <div className='list-text' contentEditable onChange={handleMyListTextChange} placeholder='List gift ideas here...'>{myListText}</div>
           </AccordionPanel>
         </>
         )}

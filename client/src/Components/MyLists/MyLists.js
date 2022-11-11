@@ -10,15 +10,22 @@ import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 library.add(faFileCirclePlus)
 
 const MyLists = ({ myLists }) => {
-  const [selectedList, setSelectedList] = useState(null);
+  const [allMyLists, setAllMyLists] = useState([]);
+  const [lastEdited, setLastEdited] = useState('');
 
+  // function addNewList(e) {
+  //   this.setAllMyLists({
+  //     allMyLists.push()
+  //   })
+  // };
+ 
   return (
     <div className="myList-container">
       <Link to="/create-list" className="create-list-btn"><FontAwesomeIcon icon="fa-solid fa-file-circle-plus" /></Link>
       <h1 className="container-title">MyLists</h1>
-        <MyListItem />
-        <MyListItem />
-        <MyListItem />
+      {/* {allMyLists} */}
+      <MyListItem />
+      <MyListItem />
     </div>
 
     

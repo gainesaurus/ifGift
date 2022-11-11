@@ -15,13 +15,11 @@
 
 .body-container {
   height: 80vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   /* max-width: 800px; */
 }
-
-/* .body {
-  position: absolute;
-} */
