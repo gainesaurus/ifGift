@@ -1,0 +1,59 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+}
+
+.list-title {
+  background-color: #e2cfc4;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+}
+
+.list-recipient {
+  font-size: 1.5rem;
+  display: block;
+  padding-left: 1rem;
+  max-width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recipient-username {
+  display: inline-block;
+  max-width: 40%;
+  color: #757575;
+  padding-right: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.plus-minus-btn {
+  background-color: #e2cfc4;
+}
+
+.list-page {
+  display: flex;
+  flex-direction: column;
+  background-color: #faedcb;
+  /* background-size: contain; */
+  background-repeat: repeat;
+  background-image: url('../../../../public/notebook-page.png');
+  /* background-image: url('https://i.pinimg.com/originals/2e/47/2c/2e472c61bec9c3c7b1e0207fd257b3c7.png'); */
+  opacity: 1.0;
+}
+
+.list-text {
+  display: flex;
+  margin: 1rem;
+  line-height: 1.6em;
+  margin-top: 3rem;
+  margin-left: 2rem;
+}

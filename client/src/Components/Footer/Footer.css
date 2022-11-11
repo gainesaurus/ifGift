@@ -1,12 +1,13 @@
 .footer {
   display: flex;
+  position: relative;
   background-color: #fff;
   height: 10vh;
   width: 100%;
   flex-direction: row;
   justify-content: space-around;
   margin: 0;
-  box-shadow: -2px 0px 6px 0.5px rgba(17, 138, 178, 0.2);
+  box-shadow: 0 -5px 25px -5px rgba(0,0,0,0.3);
 }
 
 .nav-btn {
@@ -23,10 +24,11 @@
 }
 
 .nav-btn:hover {
-  color: #EF476F;
-  stroke: #EF476F;
-  background-color: #06D6A0;
+  color: white;
+  opacity: 0.8;
+  background-color: #dbcdf0;
   border-radius: 6px;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
 }
 
 .btn-name {

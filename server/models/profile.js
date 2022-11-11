@@ -11,6 +11,10 @@ const ProfileSchema = new Schema({
   city: String,
   country: String,
   giftPreference: String,
+  wantList: String,
+  avoidList: String,
+  charityList: String,
+  registryList: String
 });
 
 const Profile = mongoose.model('Profile', ProfileSchema);

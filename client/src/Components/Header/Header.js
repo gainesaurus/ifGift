@@ -10,7 +10,7 @@ library.add(faIdCard, faGift)
 function Header() {
   return (
     <nav className="header">
-        <Link to="/" className="nav-btn"><FontAwesomeIcon icon="fa-solid fa-gift" /><span className="btn-name">home</span></Link>
+        <Link to="/" className="profile-btn"><FontAwesomeIcon icon="fa-solid fa-gift" /><span className="btn-name">home</span></Link>
         <Link to="/profile" className="profile-btn"><FontAwesomeIcon icon="fa-solid fa-id-card" /><span className="btn-name">profile</span></Link>
     </nav>
   );
