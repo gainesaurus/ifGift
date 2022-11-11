@@ -1,7 +1,7 @@
 .list-container {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 0.5rem;
   box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
 }
 
@@ -37,23 +37,28 @@
 
 .plus-minus-btn {
   background-color: #e2cfc4;
+  padding: 1rem 0;
+  padding-right: 0.4rem;
 }
 
 .list-page {
   display: flex;
   flex-direction: column;
   background-color: #faedcb;
-  /* background-size: contain; */
   background-repeat: repeat;
   background-image: url('../../../../public/notebook-page.png');
   /* background-image: url('https://i.pinimg.com/originals/2e/47/2c/2e472c61bec9c3c7b1e0207fd257b3c7.png'); */
-  opacity: 1.0;
+}
+
+.note-top {
+  margin-bottom: 3rem;
 }
 
 .list-text {
   display: flex;
-  margin: 1rem;
-  line-height: 1.6em;
-  margin-top: 3rem;
   margin-left: 2rem;
+  margin-right: 1rem;
+  line-height: 1.57rem;
+  padding-bottom: 1rem;
+  overflow-wrap: break-word;
 }

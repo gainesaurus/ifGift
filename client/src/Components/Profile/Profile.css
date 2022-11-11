@@ -3,6 +3,7 @@
   flex-direction: column;
   align-self: baseline;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .main-profile-box {
@@ -15,24 +16,16 @@
   justify-content: space-around;
   align-items: center;
   align-self: baseline;
-  margin-top: 1%;
+  margin: 1%;
   box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-}
-
-.profile-list-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
 }
 
 .edit-btn {
   justify-self: flex-end;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.2rem;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-size: 1rem;
   color: #757575;
   text-decoration: none;
   padding: 15px;
@@ -82,7 +75,7 @@
 
 .profile-name {
   display: flex;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .pronouns {
@@ -109,4 +102,42 @@
   display: flex;
   color: #757575;
   margin-top: 0.3rem;
+}
+
+
+.profile-list-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+}
+
+.list-title {
+  background-color: #e2cfc4;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  /* padding: 0.5rem; */
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+}
+
+.list-type {
+  font-size: 1.5rem;
+  display: block;
+  padding-left: 1rem;
+  max-width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

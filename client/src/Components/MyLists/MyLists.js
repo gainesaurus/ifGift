@@ -19,8 +19,6 @@ const MyLists = ({ myLists }) => {
         <MyListItem />
         <MyListItem />
         <MyListItem />
-        <MyListItem />
-        <MyListItem />
     </div>
 
     

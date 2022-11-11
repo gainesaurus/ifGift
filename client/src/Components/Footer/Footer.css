@@ -1,6 +1,7 @@
 .footer {
   display: flex;
-  position: relative;
+  position: fixed;
+  bottom: 0px;
   background-color: #fff;
   height: 10vh;
   width: 100%;
@@ -8,6 +9,7 @@
   justify-content: space-around;
   margin: 0;
   box-shadow: 0 -5px 25px -5px rgba(0,0,0,0.3);
+  z-index: 199;
 }
 
 .nav-btn {
