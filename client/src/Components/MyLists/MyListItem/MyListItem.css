@@ -65,7 +65,6 @@
   border: none;
   font-size: 1rem;
   display: flex;
-  /* position: absolute; */
   width: 30%;
   margin-right: 1rem;
   padding: 0;
@@ -80,7 +79,6 @@
 
 .list-page {
   display: flex;
-  /* position: relative; */
   flex-direction: column;
   background-color: #faedcb;
   background-repeat: repeat;
@@ -100,7 +98,6 @@
 }
 
 .list-text {
-  resize: vertical;
   overflow: auto;
   background: none;
   border: none;

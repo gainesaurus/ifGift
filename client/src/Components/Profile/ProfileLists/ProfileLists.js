@@ -37,7 +37,7 @@ function ProfileLists() {
               </AccordionButton>
             </h1>
             <AccordionPanel className="profile-list-page">
-              <div className="profile-note-top"></div>
+              <div className="note-top"></div>
               <div className='profile-list-text' contentEditable onChange={handleProfileListTextChange}>{profileListText}</div>
             </AccordionPanel>
           </>

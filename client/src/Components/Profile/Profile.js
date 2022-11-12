@@ -6,15 +6,6 @@ import ProfileLists from './ProfileLists/ProfileLists';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-} from '@chakra-ui/react'
-import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
 
 library.add(faPen)
 
