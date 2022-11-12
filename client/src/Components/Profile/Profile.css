@@ -1,23 +1,23 @@
 .profile-container {
   display: flex;
   flex-direction: column;
-  align-self: baseline;
-  width: 95%;
+  width: 100%;
   height: 100%;
+  margin: 1% 5%;
   overflow-y: scroll;
 }
 
 .main-profile-box {
   display: flex;
-  position: relative;
+  /* position: relative; */
   flex-direction: row;
   background-color: white;
   border-radius: 6px;
   width: 100%;
+  margin-bottom: 1.5rem;
   justify-content: space-around;
   align-items: center;
-  align-self: baseline;
-  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 20px -5px rgba(0,0,0,0.2);
 }
 
 .edit-btn {
@@ -104,40 +104,3 @@
   margin-top: 0.3rem;
 }
 
-/* 
-.profile-list-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.list-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-}
-
-.list-title {
-  background-color: #e2cfc4;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  /* padding: 0.5rem; */
-/*  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
-}
-
-.list-type {
-  font-size: 1.5rem;
-  display: block;
-  padding-left: 1rem;
-  max-width: 50%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-} */

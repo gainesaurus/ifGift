@@ -14,7 +14,7 @@
 }
 
 .body-container {
-  height: 80vh;
+  height: fit-content;
   margin-top: 10vh;
   margin-bottom: 10vh;
   background-repeat: no-repeat;

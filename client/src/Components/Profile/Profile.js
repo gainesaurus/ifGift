@@ -2,6 +2,7 @@ import './Profile.css';
 import { Link } from 'react-router-dom';
 import LogInButton from '../LogInButton/LogInButton';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import ProfileLists from './ProfileLists/ProfileLists';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
@@ -40,7 +41,7 @@ const Profile = () => {
           <Link to="/edit" className="edit-btn"><FontAwesomeIcon icon="fa-solid fa-pen" /></Link>
       </div>
       <div className="profile-list-box">
-    
+        <ProfileLists />
       </div>
     </div>
   )

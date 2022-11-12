@@ -22,9 +22,7 @@ function MyListItem() {
   };
 
   function handleMyListUsernameChange(e) {
-    // e.preventDefault();
-    console.log(e);
-    setMyListUsername(e);
+    setMyListUsername(e.value);
   };
 
   function handleMyListTextChange(e) {
