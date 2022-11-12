@@ -11,9 +11,10 @@ import MyLists from './Components/MyLists/MyLists';
 import FriendsList from './Components/FriendsList/FriendsList';
 import ChatList from './Components/ChatList/ChatList';
 
+
 function App() {
   const [selectedPath, setSelectedPath] = useState();
-  const [lists, setLists] = useState([]);
+
   return (
     <BrowserRouter>
       <div className="app-container">
@@ -22,10 +23,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/search" element={ <Search />} />
-            <Route path="/mylists" element={ <MyLists myLists={lists} />} />
-            <Route path="/chat" element={ <ChatList />} />
-            <Route path="/friends" element={ <FriendsList />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/mylists" element={<MyLists />} />
+            <Route path="/chat" element={<ChatList />} />
+            <Route path="/friends" element={<FriendsList />} />
           </Routes>
         </div>
         <Footer />

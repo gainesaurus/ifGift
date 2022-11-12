@@ -1,5 +1,7 @@
 import './Profile.css';
 import { Link } from 'react-router-dom';
+import LogInButton from '../LogInButton/LogInButton';
+import LogOutButton from '../LogOutButton/LogOutButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
@@ -32,109 +34,13 @@ const Profile = () => {
           <div className="address">1212 Gift Street San Diego, CA USA</div>
           <div className="birthday">08/23</div>
           <div className="holidays"></div>
+          <LogInButton />
+          <LogOutButton />
         </div>
           <Link to="/edit" className="edit-btn"><FontAwesomeIcon icon="fa-solid fa-pen" /></Link>
       </div>
       <div className="profile-list-box">
-        <Accordion className='list-container' allowToggle>
-          <AccordionItem>
-            {({ isExpanded }) => (
-            <>
-              <h1>
-                <AccordionButton>
-                  <Box className="list-title">
-                    <h1 className='list-type'>Want List</h1>
-                  </Box>
-                  {isExpanded ? (
-                    <MinusIcon fontSize='12px' className="plus-minus-btn"  bg='#e2cfc4'/>
-                  ) : (
-                    <AddIcon fontSize='12px' className="plus-minus-btn" bg='#e2cfc4'/>
-                  )}
-                </AccordionButton>
-              </h1>
-              <AccordionPanel className="list-page">
-                <div className="note-top"></div>
-                <p className='list-text'>text</p>
-              </AccordionPanel>
-            </>
-            )}
-          </AccordionItem>
-        </Accordion>
-
-        <Accordion className='list-container' allowToggle>
-          <AccordionItem>
-            {({ isExpanded }) => (
-            <>
-              <h1>
-                <AccordionButton>
-                  <Box className="list-title">
-                    <h1 className='list-type'>Avoid List</h1>
-                  </Box>
-                  {isExpanded ? (
-                    <MinusIcon fontSize='12px' className="plus-minus-btn"  bg='#e2cfc4'/>
-                  ) : (
-                    <AddIcon fontSize='12px' className="plus-minus-btn" bg='#e2cfc4'/>
-                  )}
-                </AccordionButton>
-              </h1>
-              <AccordionPanel className="list-page">
-                <div className="note-top"></div>
-                <p className='list-text'>text</p>
-              </AccordionPanel>
-            </>
-            )}
-          </AccordionItem>
-        </Accordion>
-
-        <Accordion className='list-container' allowToggle>
-          <AccordionItem>
-            {({ isExpanded }) => (
-            <>
-              <h1>
-                <AccordionButton>
-                  <Box className="list-title">
-                    <h1 className='list-type'>Charity List</h1>
-                  </Box>
-                  {isExpanded ? (
-                    <MinusIcon fontSize='12px' className="plus-minus-btn"  bg='#e2cfc4'/>
-                  ) : (
-                    <AddIcon fontSize='12px' className="plus-minus-btn" bg='#e2cfc4'/>
-                  )}
-                </AccordionButton>
-              </h1>
-              <AccordionPanel className="list-page">
-                <div className="note-top"></div>
-                <p className='list-text'>text</p>
-              </AccordionPanel>
-            </>
-            )}
-          </AccordionItem>
-        </Accordion>
-
-        <Accordion className='list-container' allowToggle>
-          <AccordionItem>
-            {({ isExpanded }) => (
-            <>
-              <h1>
-                <AccordionButton>
-                  <Box className="list-title">
-                    <h1 className='list-type'>Registry List</h1>
-                  </Box>
-                  {isExpanded ? (
-                    <MinusIcon fontSize='12px' className="plus-minus-btn"  bg='#e2cfc4'/>
-                  ) : (
-                    <AddIcon fontSize='12px' className="plus-minus-btn" bg='#e2cfc4'/>
-                  )}
-                </AccordionButton>
-              </h1>
-              <AccordionPanel className="list-page">
-                <div className="note-top"></div>
-                <p className='list-text'>text</p>
-              </AccordionPanel>
-            </>
-            )}
-          </AccordionItem>
-        </Accordion>
+    
       </div>
     </div>
   )

@@ -1,6 +1,5 @@
 import './MyLists.css';
-import { useState } from 'react';
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from 'react';
 import MyListItem from './MyListItem/MyListItem';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,40 +12,27 @@ const MyLists = ({ myLists }) => {
   const [allMyLists, setAllMyLists] = useState([]);
   const [lastEdited, setLastEdited] = useState('');
 
-  // function addNewList(e) {
-  //   this.setAllMyLists({
-  //     allMyLists.push()
-  //   })
-  // };
+  // useEffect(() => {
+  //   getAllLists().then(lists => setAllMyLists(lists))
+  // }, []);
+
+  function createNewList(newList) {
+    setAllMyLists((allMyLists) => {
+      return [...allMyLists, newList]
+    })
+  };
  
   return (
     <div className="myList-container">
-      <Link to="/create-list" className="create-list-btn"><FontAwesomeIcon icon="fa-solid fa-file-circle-plus" /></Link>
+      <button className="create-list-btn" onClick={createNewList}><FontAwesomeIcon icon="fa-solid fa-file-circle-plus" /></button>
       <h1 className="container-title">MyLists</h1>
-      {/* {allMyLists} */}
-      <MyListItem />
-      <MyListItem />
+      {allMyLists.map((list) => (
+        <MyListItem key={list._id} />
+      ))}
     </div>
 
     
     )
-    // myLists.map(list => (
-    //   <MyListItem key={list._id} list={list} />)
-    // myLists.map(list => (
-    //   <motion.div layoutId={list.id} onClick={() => setSelectedId(list.id)}>
-    //     <motion.h5>{list.subtitle}</motion.h5>
-    //     <motion.h2>{list.title}</motion.h2>
-    //   </motion.div>
-    // ))
-    // <AnimatePresence>
-    //   {selectedId && (
-    //     <motion.div layoutId={selectedId}>
-    //       <motion.h5>{list.subtitle}</motion.h5>
-    //       <motion.h2>{list.title}</motion.h2>
-    //     </motion.div>
-    //   )}
-    // </AnimatePresence>
-  //)
 };
 
 export default MyLists;

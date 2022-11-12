@@ -1,8 +1,16 @@
 import './Search.css';
+import SearchItem from './SearchItem/SearchItem';
 
 
 const Search = () => {
-  return <h1>Search</h1>;
+  return (
+    <div className="search-container">
+      <input className="search-bar" placeholder='Search ifGift users...'/>
+      <SearchItem />
+    </div>
+
+    
+    )
 };
 
 export default Search;
