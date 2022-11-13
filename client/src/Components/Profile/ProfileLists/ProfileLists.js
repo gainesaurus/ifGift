@@ -1,4 +1,3 @@
-import './ProfileLists.css';
 import { useState } from 'react';
 import {
   Accordion,
@@ -8,6 +7,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
+import './ProfileLists.css';
 // import { text } from '@fortawesome/fontawesome-svg-core';
 
 function ProfileLists() {

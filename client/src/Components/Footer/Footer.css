@@ -6,7 +6,6 @@
   min-height: 64px;
   height: 10vh;
   width: 100%;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   margin: 0;

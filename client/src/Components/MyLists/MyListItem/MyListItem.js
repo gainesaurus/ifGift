@@ -1,4 +1,3 @@
-import './MyListItem.css';
 import { useState } from 'react';
 import Select from 'react-select';
 import {
@@ -9,6 +8,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
+import './MyListItem.css';
 // import { text } from '@fortawesome/fontawesome-svg-core';
 
 function MyListItem() {

@@ -1,5 +1,5 @@
-import './Search.css';
 import SearchItem from './SearchItem/SearchItem';
+import './Search.css';
 
 
 const Search = () => {

@@ -1,26 +1,30 @@
-import './MyLists.css';
 import { useEffect, useState } from 'react';
 import MyListItem from './MyListItem/MyListItem';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { getAllLists, addToMyLists } from '../../Services/apiService';
+import './MyLists.css';
 
 library.add(faFileCirclePlus)
 
 const MyLists = ({ myLists }) => {
   const [allMyLists, setAllMyLists] = useState([]);
-  const [lastEdited, setLastEdited] = useState('');
 
   // useEffect(() => {
   //   getAllLists().then(lists => setAllMyLists(lists))
   // }, []);
 
-  function createNewList(newList) {
+  async function createNewList(newList) {
     setAllMyLists((allMyLists) => {
       return [...allMyLists, newList]
     })
+    // await addToMyLists(newList);
+    // getAllLists().then(lists => {setAllMyLists(lists)})
   };
+
+
+
   if (allMyLists && allMyLists.length) {
    return (
      <div className="myList-container">

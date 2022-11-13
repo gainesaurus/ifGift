@@ -1,6 +1,5 @@
 import './Profile.css';
 import { Link } from 'react-router-dom';
-import LogInButton from '../LogInButton/LogInButton';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import ProfileLists from './ProfileLists/ProfileLists';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +25,6 @@ const Profile = () => {
           <div className="address">1212 Gift Street San Diego, CA USA</div>
           <div className="birthday">08/23</div>
           <div className="holidays"></div>
-          <LogInButton />
           <LogOutButton />
         </div>
           <Link to="/edit" className="edit-btn"><FontAwesomeIcon icon="fa-solid fa-pen" /></Link>
