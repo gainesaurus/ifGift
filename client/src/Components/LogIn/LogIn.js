@@ -18,14 +18,23 @@ const LogIn = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>From:</h2>
-        <h2>To: You!</h2>
-        <p>Don't know what to get that special someone?</p>
-        <ul>
+        <div className="from-box">
+          <h2>From:</h2>
+          <img src="https://static.wixstatic.com/media/3dbed1_4a14f7c810ff4d40ae1be96c5c171caa~mv2.png/v1/fill/w_541,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ifGift.png"
+          className="logo"
+          alt="ifGift logo" />
+        </div>
+        <div className="to-box">
+          <h2>To: 
+          </h2>
+          <h2 className="you">You!</h2>
+        </div>
+        <p className="question">Don't know what to get that special someone?</p>
+        <ul className="function-list">
           <li>Check their ifGift want list!</li>
-          <li>Or keep your own lists of gifting ideas for all the special folks in your life.</li>
+          <li>Keep your own lists of gifting ideas for all the special folks in your life.</li>
         </ul>
-        <p>Dive in to a better way of giving with ifGift.</p>
+        <p className="ifgift-copy">Unwrap the better way to give.</p>
         <button
           onClick={loginWithPopup}
           type="button"

@@ -17,7 +17,6 @@ function MyListItem() {
   const [myListText, setMyListText] = useState('');
 
   function handleMyListNameChange(e) {
-    e.preventDefault();
     setMyListName(e.target.value);
   };
 
@@ -26,7 +25,6 @@ function MyListItem() {
   };
 
   function handleMyListTextChange(e) {
-    e.preventDefault();
     setMyListText(e.target.value);
   };
 
@@ -66,6 +64,9 @@ function MyListItem() {
               <Select className='list-username-edit' styles={selectStyle} options={options} value={myListUsername} onChange={(e)=>handleMyListUsernameChange(e)} placeholder= "Which friend?" />
             </div>
             <div className='list-text' contentEditable onChange={handleMyListTextChange}>{myListText}</div>
+            <button className="save-change-btn"
+            // onClick=""
+            >Save Changes</button>
           </AccordionPanel>
         </>
         )}

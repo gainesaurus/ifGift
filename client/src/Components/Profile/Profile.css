@@ -23,8 +23,8 @@
 .edit-btn {
   justify-self: flex-end;
   position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
+  top: 2%;
+  right: 6%;
   font-size: 1rem;
   color: #757575;
   text-decoration: none;

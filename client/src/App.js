@@ -24,7 +24,7 @@ function App() {
             <Header />
             <div className="body-container">
               <Routes>
-                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/mylists" element={<MyLists />} />

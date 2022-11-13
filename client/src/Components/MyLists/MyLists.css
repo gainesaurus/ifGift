@@ -14,6 +14,7 @@
   align-self: flex-start;
   margin-top: 1rem;
   margin-left: 3%;
+  margin-bottom: 1rem;
   color: #757575;
 }
 
@@ -38,6 +39,7 @@
 } 
 
 .arrow-container {
+  display: flex;
   top:50%;
   bottom:0;
   left:76%;

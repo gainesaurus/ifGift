@@ -83,7 +83,6 @@
   background-color: #faedcb;
   background-repeat: repeat;
   background-image: url('../../../../public/notebook-page.png');
-  /* background-image: url('https://i.pinimg.com/originals/2e/47/2c/2e472c61bec9c3c7b1e0207fd257b3c7.png'); */
 }
 
 .title-edit-box {
@@ -112,4 +111,18 @@
 
 .list-text:focus {
   outline: none;
+}
+
+.save-change-btn {
+  font-size: 12px;
+  color: #757575;
+  width: 70px;
+  border: none;
+  border-radius: 4px;
+  padding: 3px;
+  margin: 2%;
+  background-color: #f9c6c9;
+  display: flex;
+  align-self: flex-end;
+  box-shadow: 0 10px 10px -5px rgba(0,0,0,0.2);
 }
