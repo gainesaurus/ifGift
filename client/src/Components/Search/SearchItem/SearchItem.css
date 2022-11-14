@@ -33,9 +33,17 @@
   text-overflow: ellipsis;
 }
 
+.add-friend-btn {
+  border: none;
+  background: none;
+  width: 3%;
+  margin-right: 2%;
+}
+
 .search-username {
   display: inline-block;
   color: #757575;
+  width: 35%;
   align-self: center;
   padding-right: 1rem;
   overflow: hidden;

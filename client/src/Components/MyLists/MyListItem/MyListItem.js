@@ -8,8 +8,14 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 import './MyListItem.css';
 // import { text } from '@fortawesome/fontawesome-svg-core';
+
+library.add(faTrash)
 
 function MyListItem() {
   const [myListName, setMyListName] = useState('');
@@ -49,6 +55,9 @@ function MyListItem() {
               <Box className="list-title">
                 <h1 className='list-recipient'>{myListName}</h1>
                 <h2 className='recipient-username'>{myListUsername}</h2>
+                <button className="trash-btn">
+                  <FontAwesomeIcon icon="fa-solid fa-trash" title="delete list"></FontAwesomeIcon>
+                </button>
               </Box>
               {isExpanded ? (
                 <MinusIcon fontSize='12px' className="plus-minus-btn" />

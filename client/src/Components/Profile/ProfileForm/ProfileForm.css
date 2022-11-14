@@ -1,0 +1,20 @@
+.profile-input-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-title {
+  margin-top: 1rem;
+}
+
+.save-btn {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 6px;
+  border: 2px solid #dbcdf0;
+  background-color: #f9c6c9;
+  box-shadow: 0 5px 20px -5px rgba(0,0,0,0.2);
+}

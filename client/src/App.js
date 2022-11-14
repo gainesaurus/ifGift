@@ -7,6 +7,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Profile from './Components/Profile/Profile';
+import ProfileForm from './Components/Profile/ProfileForm/ProfileForm';
 import Search from './Components/Search/Search';
 import MyLists from './Components/MyLists/MyLists';
 import FriendsList from './Components/FriendsList/FriendsList';
@@ -26,6 +27,7 @@ function App({ user }) {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/editprofile" element={<ProfileForm />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/mylists" element={<MyLists />} />
                 <Route path="/chat" element={<ChatList />} />

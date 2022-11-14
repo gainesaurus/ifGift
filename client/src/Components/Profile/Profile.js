@@ -1,11 +1,13 @@
-import './Profile.css';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import ProfileLists from './ProfileLists/ProfileLists';
 import { useAuth0 } from '@auth0/auth0-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+
+import './Profile.css';
+
+import ProfileLists from './ProfileLists/ProfileLists';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 library.add(faPen)
 
@@ -17,7 +19,6 @@ const Profile = () => {
     return <div>Loading ...</div>;
   }
   
-  console.log(user);
   return (
     isAuthenticated && (
       <div className="profile-container">
@@ -25,8 +26,8 @@ const Profile = () => {
           <div className="img-box">
             <img className="profile-img"
             // src={user.picture}
-            src={"https://images.theconversation.com/files/313683/original/file-20200205-149738-1bmqilf.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"}
-            alt="profileimg"/>
+              src={"https://images.theconversation.com/files/313683/original/file-20200205-149738-1bmqilf.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"}
+              alt="profileimg"/>
             <div className="gift-preference-title">Gift Preference:</div>
             <div className="gift-preference">Charitable Donation</div>
           </div>
@@ -39,7 +40,7 @@ const Profile = () => {
             <div className="holidays"></div>
             <LogOutButton />
           </div>
-            <Link to="/edit" className="edit-btn"><FontAwesomeIcon icon="fa-solid fa-pen" /></Link>
+            <Link to="/editprofile" className="edit-btn"><FontAwesomeIcon icon="fa-solid fa-pen" title="edit profile" /></Link>
         </div>
         <div className="profile-list-box">
           <ProfileLists />
