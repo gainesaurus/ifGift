@@ -7,6 +7,8 @@ const Search = () => {
     <div className="search-container">
       <input className="search-bar" placeholder='Search ifGift users...'/>
       <SearchItem />
+      <SearchItem />
+      <SearchItem />
     </div>
 
     

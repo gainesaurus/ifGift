@@ -1,0 +1,44 @@
+.search-item-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 95%;
+  height: 10vh;
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 2%;
+  border: 2px solid #c6def1;
+  box-shadow: 0 5px 20px -5px rgba(0,0,0,0.2);
+}
+
+.name-box {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.search-pic {
+  display: flex;
+  height: 8vh;
+  border-radius: 100px;
+  border: 1px solid #c6def1;
+  margin: 2%;
+}
+
+.search-name {
+  display: inline-block;
+  max-width: 60%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.search-username {
+  display: inline-block;
+  color: #757575;
+  align-self: center;
+  padding-right: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

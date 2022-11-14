@@ -14,7 +14,7 @@ import ChatList from './Components/ChatList/ChatList';
 import LogIn from './Components/LogIn/LogIn';
 
 
-function App() {
+function App({ user }) {
   const { isAuthenticated } = useAuth0();
 
   if (isAuthenticated) {
