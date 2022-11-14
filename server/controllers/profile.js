@@ -2,27 +2,34 @@ const Profile = require('../models/profile');
 
 exports.getProfileInfo = async (ctx) => {
   try {
-    const result = await Profile.find();
-    ctx.send(result);
-    ctx.status(200);
+    const result = await Profile.findOne({email:ctx.request.body.email});
+    ctx.body = result;
+    ctx.status = 200;
   } catch (error) {
-    console.log('Error in profile controller');
-    ctx.status(500);
+    console.log('Get request error in profile controller');
+    ctx.status = 500;
   }
 };
 
-exports.insertProfile = async (req, res) => {
-  if (ctx.body.firstName && ctx.body.lastName && ctx.body.email && ctx.body.giftPreference) {
-    try {
-      const newProfile = await Event.create(ctx.body);
-      ctx.send(newProfile);
-      ctx.status(201);
-    } catch (error) {
-      console.log('Error creating profile in controller');
-      ctx.status(400).send();
+exports.insertProfile = async (ctx) => {
+  try {
+    let profile = await Profile.findOne({email:ctx.request.body.email});
+    if (!profile) {
+      profile = await Profile.create(ctx.request.body);
     }
-  } else {
-    console.log('Error with profile inputs');
-    ctx.status(400).send();
+    ctx.body = profile;
+    ctx.status = 201;
+  } catch (error) {
+    console.log('Error creating profile in controller');
+    ctx.status = 400;
   }
 };
+
+exports.updateProfile = async (ctx) => {
+  try {
+    ctx.status = 200;
+  } catch (error) {
+    console.log('Error updating profile in controller.')
+    ctx.status = 400;
+  }
+}

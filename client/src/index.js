@@ -9,13 +9,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <Auth0Provider
-  domain="dev-kbfkwj7pbiq6jz3v.us.auth0.com"
-  clientId="8YUdyy8cG7rRjXhbAQh98HOH3dPRqomx"
-  redirectUri='http://localhost:3000'
+    domain="dev-kbfkwj7pbiq6jz3v.us.auth0.com"
+    clientId="8YUdyy8cG7rRjXhbAQh98HOH3dPRqomx"
+    redirectUri='http://localhost:3000'
   >
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <App />
-    </React.StrictMode>,
+    {/* </React.StrictMode>, */}
   </Auth0Provider>
 );
 

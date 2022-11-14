@@ -1,4 +1,4 @@
 module.exports = {
-  dbName: '',
+  dbName: 'ifGift',
   PORT: 3333
 };

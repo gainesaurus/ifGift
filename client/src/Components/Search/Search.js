@@ -10,9 +10,7 @@ const Search = () => {
       <SearchItem />
       <SearchItem />
     </div>
-
-    
-    )
+  )
 };
 
 export default Search;

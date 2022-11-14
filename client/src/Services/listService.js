@@ -1,4 +1,4 @@
-const BASEurl = 'http://localhost:3000';
+const BASEurl = 'http://localhost:3333';
 
 export const getAllLists = async (userId) => {
   try {

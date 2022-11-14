@@ -25,7 +25,7 @@ const Profile = () => {
         <div className="main-profile-box">
           <div className="img-box">
             <img className="profile-img"
-            // src={user.picture}
+              // src={user.picture}
               src={"https://images.theconversation.com/files/313683/original/file-20200205-149738-1bmqilf.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"}
               alt="profileimg"/>
             <div className="gift-preference-title">Gift Preference:</div>

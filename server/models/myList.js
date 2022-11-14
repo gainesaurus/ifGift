@@ -11,6 +11,6 @@ const MyListSchema = new Schema({
   createdOn: String
 });
 
-const GiftList = mongoose.model('MyList', MyListSchema);
+const MyList = mongoose.model('MyList', MyListSchema);
 
 module.exports = MyList;

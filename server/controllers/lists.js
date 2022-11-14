@@ -1,7 +1,7 @@
-import MyList from '../models/myList';
+const MyList = require('../models/myList');
 
 
-export const fetchMyLists = async (ctx) => {
+exports.fetchMyLists = async (ctx) => {
   try {
     const result = await MyList.find();
     ctx.send(result);
@@ -12,7 +12,7 @@ export const fetchMyLists = async (ctx) => {
   }
 }
 
-export const insertList = async (ctx) => {
+exports.insertList = async (ctx) => {
   try {
     const newList = await MyList.create(ctx.body);
     ctx.send(newList);

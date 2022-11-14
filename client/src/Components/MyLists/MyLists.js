@@ -3,7 +3,7 @@ import MyListItem from './MyListItem/MyListItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import { getAllLists, addToMyLists } from '../../Services/apiService';
+import { getAllLists, addToMyLists } from '../../Services/listService';
 import './MyLists.css';
 
 library.add(faFileCirclePlus)
