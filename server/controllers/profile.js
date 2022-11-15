@@ -1,12 +1,17 @@
 const Profile = require('../models/profile');
+const jwt = require('jsonwebtoken');
 
 exports.getProfileInfo = async (ctx) => {
   try {
-    const result = await Profile.findOne({email:ctx.request.body.email});
+    console.log('fetching')
+    console.log(ctx.request);
+    const token = ctx.request.header.authorization.split(' ')[1];
+    const { _id } = jwt.verify(token, 'secret key');
+    const result = await Profile.findOne({_id});
     ctx.body = result;
     ctx.status = 200;
   } catch (error) {
-    console.log('Get request error in profile controller');
+    console.log('Get request error in profile controller', error);
     ctx.status = 500;
   }
 };
@@ -17,7 +22,10 @@ exports.insertProfile = async (ctx) => {
     if (!profile) {
       profile = await Profile.create(ctx.request.body);
     }
-    ctx.body = profile;
+    console.log(profile._id);
+    const newToken = jwt.sign({_id: profile._id}, 'secret key')
+    console.log(newToken);
+    ctx.body = { profile, token:newToken };
     ctx.status = 201;
   } catch (error) {
     console.log('Error creating profile in controller');
@@ -27,6 +35,8 @@ exports.insertProfile = async (ctx) => {
 
 exports.updateProfile = async (ctx) => {
   try {
+    let profile = await Profile.updateOne(ctx.request.body)
+    ctx.body = profile;
     ctx.status = 200;
   } catch (error) {
     console.log('Error updating profile in controller.')

@@ -4,9 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import './Home.css';
 
-const Home = () => {
-  const {user} = useAuth0(); 
-  const [userId, setUserId] = useState('');
+const Home = (props) => {
+  const {user} = useAuth0();
   // const [recentLists, setRecentLists] = useState([]);
 
   
@@ -16,7 +15,8 @@ const Home = () => {
 
   const verifyUser = async (user) => {
     const currentUser = await addUser({email: user.email});
-    setUserId(currentUser._id);
+    localStorage.setItem('accessToken', currentUser.token);
+    console.log(currentUser);
   } 
   
   // useEffect(() => {

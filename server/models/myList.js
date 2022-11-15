@@ -8,7 +8,6 @@ const MyListSchema = new Schema({
   recipient: String,
   text: String,
   lastEdited: String,
-  createdOn: String
 });
 
 const MyList = mongoose.model('MyList', MyListSchema);

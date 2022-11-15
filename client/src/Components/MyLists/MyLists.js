@@ -3,24 +3,23 @@ import MyListItem from './MyListItem/MyListItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import { getAllLists, addToMyLists } from '../../Services/listService';
+import { getAllLists, addToMyLists, getListsByUser } from '../../Services/listService';
 import './MyLists.css';
 
 library.add(faFileCirclePlus)
 
-const MyLists = ({ myLists }) => {
+const MyLists = (user) => {
   const [allMyLists, setAllMyLists] = useState([]);
 
-  // useEffect(() => {
-  //   getAllLists().then(lists => setAllMyLists(lists))
-  // }, []);
+  useEffect(() => {
+    getListsByUser(user).then(lists => setAllMyLists(lists))
+  }, []);
 
   async function createNewList(newList) {
-    setAllMyLists((allMyLists) => {
-      return [...allMyLists, newList]
-    })
-    // await addToMyLists(newList);
-    // getAllLists().then(lists => {setAllMyLists(lists)})
+    // setAllMyLists((allMyLists) => {
+    //   return [...allMyLists, newList]
+    await addToMyLists(newList);
+    getListsByUser(user).then(lists => {setAllMyLists(lists)})
   };
 
 

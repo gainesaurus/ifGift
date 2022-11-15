@@ -12,12 +12,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+import { updateList } from '../../../Services/listService';
+
 import './MyListItem.css';
-// import { text } from '@fortawesome/fontawesome-svg-core';
 
 library.add(faTrash)
 
-function MyListItem() {
+function MyListItem(user) {
   const [myListName, setMyListName] = useState('');
   const [myListUsername, setMyListUsername] = useState('');
   const [myListText, setMyListText] = useState('');
@@ -33,6 +34,15 @@ function MyListItem() {
   function handleMyListTextChange(e) {
     setMyListText(e.target.value);
   };
+
+  function handleListChanges(user) {
+    const createdBy = user.email;
+    const recipient = myListUsername;
+    const text = myListText;
+    const lastEdited = new Date.now.toISOString();  // check
+    const newMyList = { createdBy, recipient, text, lastEdited };
+    updateList(newMyList);
+  }
 
   const options = [
     { value: 'joshyjosh', label: 'joshyjosh' },
@@ -69,12 +79,21 @@ function MyListItem() {
           <AccordionPanel className="list-page">
             <div className="note-top"></div>
             <div className='title-edit-box'>
-              <input className='list-recipient-edit' type='text' value={myListName} onChange={handleMyListNameChange} placeholder= "Title: Who is this list for?" />
-              <Select className='list-username-edit' styles={selectStyle} options={options} value={myListUsername} onChange={(e)=>handleMyListUsernameChange(e)} placeholder= "Which friend?" />
+              <input className='list-recipient-edit' type='text'
+                value={myListName} onChange={handleMyListNameChange}
+                placeholder= "Title: Who is this list for?" 
+              />
+              <Select className='list-username-edit' styles={selectStyle}
+                options={options} value={myListUsername}
+                onChange={(e)=>handleMyListUsernameChange(e)}
+                placeholder= "Which friend?"
+              />
             </div>
-            <div className='list-text' contentEditable onChange={handleMyListTextChange}>{myListText}</div>
+            <div className='list-text' contentEditable
+              onChange={handleMyListTextChange}
+            >{myListText}</div>
             <button className="save-change-btn"
-            // onClick=""
+            onClick={handleListChanges}
             >Save Changes</button>
           </AccordionPanel>
         </>

@@ -5,7 +5,7 @@ const lists = require('./controllers/lists')
 
 router.get('/profile', profile.getProfileInfo);
 router.post('/profile', profile.insertProfile);
-// router.put('/profile', profile.updateProfile);
+router.put('/profile', profile.updateProfile);
 
 router.get('/mylists', lists.fetchMyLists);
 router.post('/mylists', lists.insertList);

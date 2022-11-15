@@ -3,6 +3,7 @@ const mongoose = require('./index');
 const Schema = mongoose.Schema;
 
 const ProfileSchema = new Schema({
+  profilePic: Buffer,
   name: String,
   pronouns: String,
   email: String,

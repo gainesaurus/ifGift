@@ -28,9 +28,16 @@ select {
   margin-top: 2rem;
   width: 100%;
   justify-content: center;
-  padding: 5px;
+  align-self: center;
+  padding: 5px 0 ;
   border-radius: 6px;
+  text-decoration: none;
   border: 1px solid #757575;
   background-color: #f9c6c9;
   box-shadow: 0 5px 20px -5px rgba(0,0,0,0.2);
+}
+
+.save-btn:active {
+  transform: scale(0.99);
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.24);
 }
