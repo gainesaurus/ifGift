@@ -50,7 +50,7 @@ const Profile = () => {
               src={user.picture ? user.picture : 'https://i.pinimg.com/originals/4b/4b/5e/4b4b5e5370d0888937788489a3923f24.jpg'}
               alt="profileimg"/>
             <div className="gift-preference-title">Gift Preference:</div>
-            <div className="gift-preference">Charitable Donation</div>
+            <div className="gift-preference">{userData.giftPref}</div>
           </div>
           <div className="profile-info-box">
             <div className="profile-name">{userData.name}</div>

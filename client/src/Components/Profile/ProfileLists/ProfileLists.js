@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import ContentEditable from 'react-contenteditable'
+import ContentEditable from 'react-contenteditable';
+import Linkify from 'react-linkify';
 import { useRef } from 'react';
 import {
   Accordion,
@@ -27,16 +28,16 @@ function ProfileLists() {
 
 
   useEffect(() => {
-    getUserData();
+    getProfileLists();
   }, []);
 
-  const getUserData = async () => {
+  const getProfileLists = async () => {
     const accessToken = localStorage.getItem('accessToken');
     const fetchedUser = await getUserInfo(accessToken);
-    setWantListText(fetchedUser.wantList)
-    setAvoidListText(fetchedUser.avoidList)
+    setWantListText(fetchedUser.wantList);
+    setAvoidListText(fetchedUser.avoidList);
     setCharityListText(fetchedUser.charityList)
-    setRegistryListText(fetchedUser.registryList)
+    setRegistryListText(fetchedUser.registryList);
   }
 
   function handleWantListChange(e) {
@@ -89,16 +90,13 @@ function ProfileLists() {
                 className='profile-list-text'
                 innerRef={wantsRef}
                 tagName="div"
-                html={wantListText}
+                html={wantListText ? wantListText : ''}
                 onChange={(e) => {
                   const html = e.target.value;
                   setWantListText(html);
                 }}
-                value={wantListText}/>
-              {/* <div className='profile-list-text' contentEditable
-                suppressContentEditableWarning={true}
-                onInput={(e) => setWantListText(e.currentTarget.textContent)}
-              >{wantListText}</div> */}
+                value={wantListText}
+              />
               <button className="save-change-btn"
                 onClick={handleWantListChange}
               >Save Changes</button>
@@ -130,13 +128,12 @@ function ProfileLists() {
                 className='profile-list-text'
                 innerRef={avoidsRef}
                 tagName="div"
-                html={avoidListText}
+                html={avoidListText ? avoidListText : ''}
                 onChange={(e) => {
                   const html = e.target.value;
                   setAvoidListText(html);
                 }}
-                />
-            {/* <div className='list-text' contentEditable onChange={handleAvoidListChange}>{avoidListText}</div> */}
+              />
             <button className="save-change-btn"
               onClick={handleAvoidListChange}
             >Save Changes</button>
@@ -168,13 +165,12 @@ function ProfileLists() {
                 className='profile-list-text'
                 innerRef={charityRef}
                 tagName="div"
-                html={charityListText}
+                html={charityListText ? charityListText : ''}
                 onChange={(e) => {
                   const html = e.target.value;
                   setCharityListText(html);
                 }}
-                />
-            {/* <div className='list-text' contentEditable onChange={handleCharityListChange}>{charityListText}</div> */}
+              />
             <button className="save-change-btn"
               onClick={handleCharityListChange}
             >Save Changes</button>
@@ -203,16 +199,15 @@ function ProfileLists() {
           <AccordionPanel className="list-page">
             <div className="note-top"></div>
             <ContentEditable
-                className='profile-list-text'
-                innerRef={registryRef}
-                tagName="div"
-                html={registryListText}
-                onChange={(e) => {
-                  const html = e.target.value;
-                  setRegistryListText(html);
-                }}
-                />
-            {/* <div className='list-text' contentEditable onChange={handleRegistryListChange}>{registryListText}</div> */}
+              className='profile-list-text'
+              innerRef={registryRef}
+              tagName="div"
+              html={registryListText ? registryListText : ''}
+              onChange={(e) => {
+                const html = e.target.value;
+                setRegistryListText(html);
+              }}
+            />
             <button className="save-change-btn"
               onClick={handleRegistryListChange}
             >Save Changes</button>

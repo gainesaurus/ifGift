@@ -10,7 +10,7 @@ const ProfileSchema = new Schema({
   email: String,
   birthday: String,
   address: String,
-  giftPreference: String,
+  giftPref: String,
   wantList: String,
   avoidList: String,
   charityList: String,

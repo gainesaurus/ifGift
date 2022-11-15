@@ -16,7 +16,6 @@ const Home = () => {
   const verifyUser = async (user) => {
     const currentUser = await addUser({email: user.email});
     localStorage.setItem('accessToken', currentUser.token);
-    console.log(currentUser);
   } 
   
   // useEffect(() => {

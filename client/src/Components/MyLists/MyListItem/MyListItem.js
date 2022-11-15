@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Select from 'react-select';
+import ContentEditable from 'react-contenteditable';
 import {
   Accordion,
   AccordionItem,

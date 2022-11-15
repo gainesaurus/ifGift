@@ -8,26 +8,26 @@ import './ProfileForm.css';
 
 function ProfileForm () {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [image, setImage] = useState()
+  const [giftPreference, setGiftPreference] = useState();
   const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const profilePic = image;
     const name = e.target.name.value;
     const userName = e.target.username.value;
     const pronouns = e.target.pronouns.value;
     const email = user.email;
     const address = e.target.address.value;
     const birthday = new Date(e.target.date.value).toISOString();  // check
-    const giftPref = e.target.giftPreference.value.value;
-    const newProfile = { profilePic, name, userName, pronouns, email, address, birthday, giftPref };
+    const giftPref = giftPreference;
+    const newProfile = { name, userName, pronouns, email, address, birthday, giftPref };
     await updateUser(newProfile);
     navigate('/profile');
   }
 
-  const imageHandler = async (e) => {
-    setImage([e.target.files]);
+  const giftPrefHandler = async (e) => {
+    console.log(e.target.value);
+    setGiftPreference(e.target.value)
   }
 
   if (isLoading) {
@@ -38,10 +38,6 @@ function ProfileForm () {
     isAuthenticated && (
       <form className='profile-input-form' onSubmit={submitHandler}>
         <h1 className='form-title'>Edit Your Profile</h1>
-        <h2 className='input-title'>Profile Picture:</h2>
-        <input
-        type="file" multiple={false}
-        accept="image/*" onChange={imageHandler} />
         <h2 className='input-title'>name:</h2>
         <input
           required name='name' className='name-input' type='text' placeholder="your name..."
@@ -70,7 +66,7 @@ function ProfileForm () {
           placeholder="1212 Give Better Blvd. Ifsburg, Giftesota, USA"
         />
         <h2 className='input-title'>my gift preference:</h2>
-        <select required name ='giftPreference' className="gift-pref-select">
+        <select required value={giftPreference} className="gift-pref-select" onChange={giftPrefHandler}>
           <option value="Gifts from My Want List">My Want List</option>
           <option value="Gifts from My Registries">My Registries</option>
           <option value="Charitable Donations">Charitable Donations</option>

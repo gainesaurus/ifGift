@@ -1,8 +1,6 @@
 const BASEurl = 'http://localhost:3333';
 
 export const getUserInfo = async (userId) => {
-  console.log('fetching user');
-  console.log(userId);
   try {
     const result = await fetch(`${BASEurl}/profile`, {
       method: 'GET',
@@ -13,7 +11,6 @@ export const getUserInfo = async (userId) => {
       }
     });
     const user = await result.json();
-    console.log(user);
     return user;
   } catch (err) {
     console.error(err);
