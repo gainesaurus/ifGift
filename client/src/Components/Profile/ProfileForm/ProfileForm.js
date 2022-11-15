@@ -15,11 +15,13 @@ function ProfileForm () {
     e.preventDefault();
     const profilePic = image;
     const name = e.target.name.value;
+    const userName = e.target.username.value;
+    const pronouns = e.target.pronouns.value;
     const email = user.email;
     const address = e.target.address.value;
     const birthday = new Date(e.target.date.value).toISOString();  // check
     const giftPref = e.target.giftPreference.value.value;
-    const newProfile = { profilePic, name, email, address, birthday, giftPref };
+    const newProfile = { profilePic, name, userName, pronouns, email, address, birthday, giftPref };
     await updateUser(newProfile);
     navigate('/profile');
   }
@@ -37,17 +39,36 @@ function ProfileForm () {
       <form className='profile-input-form' onSubmit={submitHandler}>
         <h1 className='form-title'>Edit Your Profile</h1>
         <h2 className='input-title'>Profile Picture:</h2>
-        <input type="file" multiple={false} accept="image/*" onChange={imageHandler} />
+        <input
+        type="file" multiple={false}
+        accept="image/*" onChange={imageHandler} />
         <h2 className='input-title'>name:</h2>
         <input
-          required name='name' className='name-input' type='text' placeholder="Your name..."
+          required name='name' className='name-input' type='text' placeholder="your name..."
+        />
+         <h2 className='input-title'>username:</h2>
+        <input
+          required name='username' className='name-input'
+          type='text' placeholder="create a username..."
+        />
+        <h2 className='input-title'>pronouns:</h2>
+        <input
+          name='pronouns' className='name-input'
+          type='text' placeholder="your pronouns..."
         />
         <h2 className='input-title'>e-mail:</h2>
         <p>{user.email}</p>
         <h2 className='input-title'>birthday:</h2>
-        <input min={new Date().toISOString().slice(0,-8)} name='date' className='date-input' type='date' pattern="\d{4}-\d{2}-\d{2}"/>
+        <input
+          min={new Date().toISOString().slice(0,-8)}
+          name='date' className='date-input'
+          type='date'
+        />
         <h2 className='input-title'>address:</h2>
-        <input name='address' className='address-input' type='text' placeholder="1212 Give Better Blvd. Ifsburg, Giftesota, USA" />
+        <input
+          name='address' className='address-input' type='text'
+          placeholder="1212 Give Better Blvd. Ifsburg, Giftesota, USA"
+        />
         <h2 className='input-title'>my gift preference:</h2>
         <select required name ='giftPreference' className="gift-pref-select">
           <option value="Gifts from My Want List">My Want List</option>

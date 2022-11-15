@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useState } from 'react';
 
 import './App.css';
 
@@ -17,8 +16,7 @@ import LogIn from './Components/LogIn/LogIn';
 
 
 function App() {
-  const { user, isAuthenticated } = useAuth0();
-  const [userId, setUserId] = useState('');
+  const { isAuthenticated } = useAuth0();
 
   if (isAuthenticated) {
     return (
@@ -27,13 +25,13 @@ function App() {
             <Header />
             <div className="body-container">
               <Routes>
-                <Route path="/" element={<Home setUserId={setUserId} />} />
-                <Route path="/profile" element={<Profile userId={userId} />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/editprofile" element={<ProfileForm />} />
                 <Route path="/search" element={<Search />} />
-                <Route path="/mylists" element={<MyLists userId={userId}/>} />
+                <Route path="/mylists" element={<MyLists />} />
                 <Route path="/chat" element={<ChatList />} />
-                <Route path="/friends" element={<FriendsList user={user}/>} />
+                <Route path="/friends" element={<FriendsList />} />
               </Routes>
             </div>
             <Footer />

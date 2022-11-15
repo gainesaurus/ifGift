@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const ProfileSchema = new Schema({
   profilePic: Buffer,
   name: String,
+  userName: String,
   pronouns: String,
   email: String,
   birthday: String,

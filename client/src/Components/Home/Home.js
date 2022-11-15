@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import './Home.css';
 
-const Home = (props) => {
+const Home = () => {
   const {user} = useAuth0();
   // const [recentLists, setRecentLists] = useState([]);
 

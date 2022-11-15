@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ContentEditable from 'react-contenteditable'
+import { useRef } from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -7,16 +9,61 @@ import {
   Box,
 } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
+
 import './ProfileLists.css';
-// import { text } from '@fortawesome/fontawesome-svg-core';
+
+import { updateUser, getUserInfo } from '../../../Services/profileService';
+
 
 function ProfileLists() {
-  const [profileListText, setProfileListText] = useState('');
+  const [wantListText, setWantListText] = useState('');
+  const [avoidListText, setAvoidListText] = useState('');
+  const [charityListText, setCharityListText] = useState('');
+  const [registryListText, setRegistryListText] = useState('');
+  const wantsRef = useRef();
+  const avoidsRef = useRef();
+  const charityRef = useRef();
+  const registryRef = useRef();
 
-  function handleProfileListTextChange(e) {
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const getUserData = async () => {
+    const accessToken = localStorage.getItem('accessToken');
+    const fetchedUser = await getUserInfo(accessToken);
+    setWantListText(fetchedUser.wantList)
+    setAvoidListText(fetchedUser.avoidList)
+    setCharityListText(fetchedUser.charityList)
+    setRegistryListText(fetchedUser.registryList)
+  }
+
+  function handleWantListChange(e) {
     e.preventDefault();
-    setProfileListText(e.target.value);
+    const wantList = wantListText;
+    updateUser({ wantList });
   };
+
+  function handleAvoidListChange(e) {
+    e.preventDefault();
+    const avoidList = avoidListText;
+    updateUser({ avoidList })
+  };
+
+  function handleCharityListChange(e) {
+    e.preventDefault();
+    const charityList = charityListText;
+    updateUser({ charityList })
+  };
+
+  function handleRegistryListChange(e) {
+    e.preventDefault();
+    const registryList = registryListText;
+    updateUser({ registryList })
+  };
+
+
   
   return (
     <>
@@ -38,7 +85,23 @@ function ProfileLists() {
             </h1>
             <AccordionPanel className="profile-list-page">
               <div className="note-top"></div>
-              <div className='profile-list-text' contentEditable onChange={handleProfileListTextChange}>{profileListText}</div>
+              <ContentEditable
+                className='profile-list-text'
+                innerRef={wantsRef}
+                tagName="div"
+                html={wantListText}
+                onChange={(e) => {
+                  const html = e.target.value;
+                  setWantListText(html);
+                }}
+                value={wantListText}/>
+              {/* <div className='profile-list-text' contentEditable
+                suppressContentEditableWarning={true}
+                onInput={(e) => setWantListText(e.currentTarget.textContent)}
+              >{wantListText}</div> */}
+              <button className="save-change-btn"
+                onClick={handleWantListChange}
+              >Save Changes</button>
             </AccordionPanel>
           </>
           )}
@@ -63,7 +126,20 @@ function ProfileLists() {
           </h1>
           <AccordionPanel className="list-page">
             <div className="note-top"></div>
-            <div className='list-text' contentEditable onChange={handleProfileListTextChange}>{profileListText}</div>
+            <ContentEditable
+                className='profile-list-text'
+                innerRef={avoidsRef}
+                tagName="div"
+                html={avoidListText}
+                onChange={(e) => {
+                  const html = e.target.value;
+                  setAvoidListText(html);
+                }}
+                />
+            {/* <div className='list-text' contentEditable onChange={handleAvoidListChange}>{avoidListText}</div> */}
+            <button className="save-change-btn"
+              onClick={handleAvoidListChange}
+            >Save Changes</button>
           </AccordionPanel>
         </>
         )}
@@ -88,7 +164,20 @@ function ProfileLists() {
           </h1>
           <AccordionPanel className="list-page">
             <div className="note-top"></div>
-            <div className='list-text' contentEditable onChange={handleProfileListTextChange}>{profileListText}</div>
+            <ContentEditable
+                className='profile-list-text'
+                innerRef={charityRef}
+                tagName="div"
+                html={charityListText}
+                onChange={(e) => {
+                  const html = e.target.value;
+                  setCharityListText(html);
+                }}
+                />
+            {/* <div className='list-text' contentEditable onChange={handleCharityListChange}>{charityListText}</div> */}
+            <button className="save-change-btn"
+              onClick={handleCharityListChange}
+            >Save Changes</button>
           </AccordionPanel>
         </>
         )}
@@ -113,7 +202,20 @@ function ProfileLists() {
           </h1>
           <AccordionPanel className="list-page">
             <div className="note-top"></div>
-            <div className='list-text' contentEditable onChange={handleProfileListTextChange}>{profileListText}</div>
+            <ContentEditable
+                className='profile-list-text'
+                innerRef={registryRef}
+                tagName="div"
+                html={registryListText}
+                onChange={(e) => {
+                  const html = e.target.value;
+                  setRegistryListText(html);
+                }}
+                />
+            {/* <div className='list-text' contentEditable onChange={handleRegistryListChange}>{registryListText}</div> */}
+            <button className="save-change-btn"
+              onClick={handleRegistryListChange}
+            >Save Changes</button>
           </AccordionPanel>
         </>
         )}

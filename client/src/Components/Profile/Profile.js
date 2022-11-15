@@ -14,7 +14,7 @@ import { getUserInfo } from '../../Services/profileService';
 library.add(faPen)
 
 
-const Profile = (props) => {
+const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [userData, setUserData] = useState({});
   const [fetched, setFetched] = useState(false);
@@ -28,8 +28,13 @@ const Profile = (props) => {
     const accessToken = localStorage.getItem('accessToken');
     const fetchedUser = await getUserInfo(accessToken);
     setFetched(true);
-    console.log(fetchedUser);
     setUserData(fetchedUser);
+  }
+
+  const dateFormatter = (dateObj) => {
+    const date = new Date(dateObj)
+    const month = date.toLocaleString('en-US', {month: 'long' });
+    return `${date.getDate()} ${month}`;
   }
   
   if (isLoading && fetched) {
@@ -42,21 +47,20 @@ const Profile = (props) => {
         <div className="main-profile-box">
           <div className="img-box">
             <img className="profile-img"
-              // src={user.picture}
-              src={user.profilePic ? user.profilePic : 'https://i.pinimg.com/originals/4b/4b/5e/4b4b5e5370d0888937788489a3923f24.jpg'}
+              src={user.picture ? user.picture : 'https://i.pinimg.com/originals/4b/4b/5e/4b4b5e5370d0888937788489a3923f24.jpg'}
               alt="profileimg"/>
             <div className="gift-preference-title">Gift Preference:</div>
             <div className="gift-preference">Charitable Donation</div>
           </div>
           <div className="profile-info-box">
             <div className="profile-name">{userData.name}</div>
-            <div className="pronouns">he/him/his</div>
-            <div className="email">{user.email}</div>
-            <div className="address">1212 Gift Street San Diego, CA USA</div>
-            <div className="birthday">08/23</div>
-            <div className="holidays"></div>
-            <LogOutButton />
+            <div className="username">@{userData.userName}</div>
+            <div className="pronouns">{userData.pronouns}</div>
+            <div className="email">{userData.email}</div>
+            <div className="address">{userData.address}</div>
+            <div className="birthday">born: {dateFormatter(userData.birthday)}</div>
           </div>
+            <LogOutButton />
             <Link to="/editprofile" className="edit-btn"><FontAwesomeIcon icon="fa-solid fa-pen" title="edit profile" /></Link>
         </div>
         <div className="profile-list-box">

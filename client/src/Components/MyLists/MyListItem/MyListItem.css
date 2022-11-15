@@ -132,3 +132,9 @@
   align-self: flex-end;
   box-shadow: 0 10px 10px -5px rgba(0,0,0,0.2);
 }
+
+.save-change-btn:active {
+  transform: scale(0.99);
+  box-shadow: 0, 5px, 5px, -5px rgba(0, 0, 0, 0.24);
+  border: 1px solid #757575;
+}

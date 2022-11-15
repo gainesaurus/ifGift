@@ -14,7 +14,7 @@ exports.fetchMyLists = async (ctx) => {
 
 exports.insertList = async (ctx) => {
   try {
-    const newList = await MyList.create({createdBy: ctx.request.body.email});
+    const newList = await MyList.create({createdBy: ctx.request.body._id});
     ctx.status = 201;
   } catch (error) {
     console.error(error);
