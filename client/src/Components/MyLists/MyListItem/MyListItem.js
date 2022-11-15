@@ -1,28 +1,29 @@
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Select from 'react-select';
 import ContentEditable from 'react-contenteditable';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  Box,
-} from '@chakra-ui/react'
+import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { updateList } from '../../../Services/listService';
+import { getUserInfo } from '../../../Services/profileService';
 
 import './MyListItem.css';
 
 library.add(faTrash)
 
-function MyListItem(user) {
+function MyListItem() {
   const [myListName, setMyListName] = useState('');
   const [myListUsername, setMyListUsername] = useState('');
   const [myListText, setMyListText] = useState('');
+  const [userId, setUserId] = useState('');
+  const listRef = useRef();
+
+  useEffect(() => {
+    getUserId();
+  }, []);
 
   function handleMyListNameChange(e) {
     setMyListName(e.target.value);
@@ -32,17 +33,20 @@ function MyListItem(user) {
     setMyListUsername(e.value);
   };
 
-  function handleMyListTextChange(e) {
-    setMyListText(e.target.value);
-  };
-
-  function handleListChanges(user) {
-    const createdBy = user.email;
+  function handleListChanges() {
+    const createdBy = userId;
+    const title = myListName;
     const recipient = myListUsername;
     const text = myListText;
-    const lastEdited = new Date.now.toISOString();  // check
-    const newMyList = { createdBy, recipient, text, lastEdited };
+    const lastEdited = Date.now.toISOString;
+    const newMyList = { createdBy, title, recipient, text, lastEdited };
     updateList(newMyList);
+  }
+
+  const getUserId = async () => {
+    const accessToken = localStorage.getItem('accessToken');
+    const fetchedUser = await getUserInfo(accessToken);
+    setUserId(fetchedUser._id)
   }
 
   const options = [
@@ -66,10 +70,10 @@ function MyListItem(user) {
               <Box className="list-title">
                 <h1 className='list-recipient'>{myListName}</h1>
                 <h2 className='recipient-username'>{myListUsername}</h2>
-                <button className="trash-btn">
-                  <FontAwesomeIcon icon="fa-solid fa-trash" title="delete list"></FontAwesomeIcon>
-                </button>
               </Box>
+              <button className="trash-btn">
+                  <FontAwesomeIcon icon="fa-solid fa-trash" title="delete list"></FontAwesomeIcon>
+              </button>
               {isExpanded ? (
                 <MinusIcon fontSize='12px' className="plus-minus-btn" />
               ) : (
@@ -90,9 +94,17 @@ function MyListItem(user) {
                 placeholder= "Which friend?"
               />
             </div>
-            <div className='list-text' contentEditable
-              onChange={handleMyListTextChange}
-            >{myListText}</div>
+            <ContentEditable
+                className='list-text'
+                innerRef={listRef}
+                tagName="div"
+                html={myListText ? myListText : ''}
+                onChange={(e) => {
+                  const html = e.target.value;
+                  setMyListText(html);
+                }}
+                value={myListText}
+              />
             <button className="save-change-btn"
             onClick={handleListChanges}
             >Save Changes</button>

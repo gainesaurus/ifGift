@@ -1,25 +1,39 @@
 import { useEffect, useState } from 'react';
-import MyListItem from './MyListItem/MyListItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import { getAllLists, addToMyLists, getListsByUser } from '../../Services/listService';
+
+import MyListItem from './MyListItem/MyListItem';
+import { getAllLists, addToMyLists, getListsByUserId } from '../../Services/listService';
+import { getUserInfo } from '../../Services/profileService';
+
 import './MyLists.css';
 
 library.add(faFileCirclePlus)
 
-const MyLists = (user) => {
+const MyLists = () => {
   const [allMyLists, setAllMyLists] = useState([]);
+  const [userId, setUserId] = useState('');
+  // const [newList, setNewList] = useState('');
 
   useEffect(() => {
-    getListsByUser(user).then(lists => setAllMyLists(lists))
+    getUserId();
+    getListsByUserId(userId).then(lists => setAllMyLists(lists))
   }, []);
 
-  async function createNewList(newList) {
+  async function getUserId() {
+    const accessToken = localStorage.getItem('accessToken');
+    const fetchedUser = await getUserInfo(accessToken);
+    setUserId(fetchedUser._id)
+  }
+
+  async function createNewList() {
     // setAllMyLists((allMyLists) => {
     //   return [...allMyLists, newList]
-    await addToMyLists(newList);
-    getListsByUser(user).then(lists => {setAllMyLists(lists)})
+    // })
+    // const createdBy = userId;
+    await addToMyLists(userId);
+    getListsByUserId(userId).then(lists => {setAllMyLists(lists)})
   };
 
 

@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react';
 import ContentEditable from 'react-contenteditable';
-import Linkify from 'react-linkify';
 import { useRef } from 'react';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  Box,
-} from '@chakra-ui/react'
+import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
 
 import './ProfileLists.css';

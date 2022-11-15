@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const MyListSchema = new Schema({
   createdBy: String,
+  title: String,
   collaborators: [String],
   recipient: String,
   text: String,

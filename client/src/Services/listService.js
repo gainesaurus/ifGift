@@ -1,32 +1,29 @@
 const BASEurl = 'http://localhost:3333';
 
-export const getListsByUser = async (user) => {
+export const getListsByUserId = async (userId) => {
   try {
-    const result = await fetch(`${BASEurl}/mylists`, {
+    const result = await fetch(`${BASEurl}/mylists/${userId}`, {
       method: 'GET',
       mode: 'cors',
     });
-    result.forEach(list => {
-      if (list.createdBy === user.email) return result;
-    })
-    return await result.json();
+    return result.json();
   } catch (err) {
     console.error(err);
   }
 };
 
-export const addToMyLists = async (newList) => {
+export const addToMyLists = async (userId) => {
+  console.log(userId);
   try {
-    const result = await fetch(`${BASEurl}/mylists`, {
+    const result = await fetch(`${BASEurl}/mylists/${userId}`, {
       method: 'POST',
       mode: 'cors',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newList),
+      // body: JSON.stringify(newList),
     });
-
     return await result.json();
   } catch (err) {
     console.error(err);
