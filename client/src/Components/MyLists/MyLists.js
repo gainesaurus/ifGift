@@ -44,7 +44,7 @@ const MyLists = () => {
        <button className="create-list-btn" onClick={createNewList}><FontAwesomeIcon icon="fa-solid fa-file-circle-plus" /></button>
        <h1 className="container-title">MyLists</h1>
        {allMyLists.map((list) => (
-         <MyListItem key={list._id} />
+         <MyListItem key={list._id} myList={list} allMyLists={allMyLists} setAllMyLists={setAllMyLists}/>
        ))}
      </div>
      )

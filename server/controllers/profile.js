@@ -3,8 +3,6 @@ const jwt = require('jsonwebtoken');
 
 exports.getProfileInfo = async (ctx) => {
   try {
-    console.log('fetching')
-    console.log(ctx.request);
     const token = ctx.request.header.authorization.split(' ')[1];
     const { _id } = jwt.verify(token, 'secret key');
     const result = await Profile.findOne({_id});
@@ -22,9 +20,7 @@ exports.insertProfile = async (ctx) => {
     if (!profile) {
       profile = await Profile.create(ctx.request.body);
     }
-    console.log(profile._id);
     const newToken = jwt.sign({_id: profile._id}, 'secret key')
-    console.log(newToken);
     ctx.body = { profile, token:newToken };
     ctx.status = 201;
   } catch (error) {

@@ -14,8 +14,29 @@ exports.fetchMyLists = async (ctx) => {
 
 exports.insertList = async (ctx) => {
   try {
-    const newList = await MyList.create({createdBy: ctx.params.userId});
+    await MyList.create({createdBy: ctx.params.userId});
     ctx.status = 201;
+  } catch (error) {
+    console.error(error);
+    ctx.status = 400;
+  }
+}
+
+exports.findByIdAndUpdate = async (ctx) => {
+  try {
+    await MyList.findOneAndUpdate({_id: ctx.params.id}, { ...ctx.request.body })
+    ctx.status = 200;
+  } catch (error) {
+    console.error(error);
+    ctx.status = 400;
+  }
+}
+
+exports.deleteList = async (ctx) => {
+  try {
+    console.log(ctx.params.id)
+    await MyList.findOneAndRemove({_id: ctx.params.id})
+    ctx.status = 200;
   } catch (error) {
     console.error(error);
     ctx.status = 400;

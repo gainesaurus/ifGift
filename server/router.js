@@ -8,8 +8,8 @@ router.post('/profile', profile.insertProfile);
 router.put('/profile', profile.updateProfile);
 
 router.get('/mylists/:userId', lists.fetchMyLists);
-router.post('/mylists/:userId', lists.insertList);
-// router.put('/myLists', lists.updateList);
-// router.delete('/mylists', lists.deleteList);
+router.post('/mylists/:userId', lists.insertList); 
+router.put('/myLists/:id', lists.findByIdAndUpdate);
+router.delete('/mylists/:id', lists.deleteList);
 
 module.exports = router;

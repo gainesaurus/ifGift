@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { updateList } from '../../../Services/listService';
+import { updateList, deleteList } from '../../../Services/listService';
 import { getUserInfo } from '../../../Services/profileService';
 
 import './MyListItem.css';
 
 library.add(faTrash)
 
-function MyListItem() {
+function MyListItem(props) {
   const [myListName, setMyListName] = useState('');
   const [myListUsername, setMyListUsername] = useState('');
   const [myListText, setMyListText] = useState('');
@@ -40,13 +40,20 @@ function MyListItem() {
     const text = myListText;
     const lastEdited = Date.now.toISOString;
     const newMyList = { createdBy, title, recipient, text, lastEdited };
-    updateList(newMyList);
+    updateList(props.myList._id, newMyList);
   }
 
   const getUserId = async () => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = await localStorage.getItem('accessToken');
     const fetchedUser = await getUserInfo(accessToken);
     setUserId(fetchedUser._id)
+  }
+
+  const removeList = async () => {
+    console.log(props.myList._id)
+    deleteList(props.myList._id);
+    const newLists = props.allMyLists.filter(list => list._id !== props.myList._id)
+    props.setAllMyLists(newLists);
   }
 
   const options = [
@@ -71,8 +78,8 @@ function MyListItem() {
                 <h1 className='list-recipient'>{myListName}</h1>
                 <h2 className='recipient-username'>{myListUsername}</h2>
               </Box>
-              <button className="trash-btn">
-                  <FontAwesomeIcon icon="fa-solid fa-trash" title="delete list"></FontAwesomeIcon>
+              <button className="trash-btn" onClick={removeList}>trash
+                  {/* <FontAwesomeIcon icon="fa-solid fa-trash" title="delete list"></FontAwesomeIcon> */}
               </button>
               {isExpanded ? (
                 <MinusIcon fontSize='12px' className="plus-minus-btn" />
