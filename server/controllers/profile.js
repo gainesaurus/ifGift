@@ -1,6 +1,17 @@
 const Profile = require('../models/profile');
 const jwt = require('jsonwebtoken');
 
+exports.getAllProfiles = async (ctx) => {
+  try {
+    const result = await Profile.find();
+    ctx.body = result;
+    ctx.status = 200;
+  } catch (error) {
+    console.error(error);
+    ctx.status = 400;
+  }
+}
+
 exports.getProfileInfo = async (ctx) => {
   try {
     const token = ctx.request.header.authorization.split(' ')[1];

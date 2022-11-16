@@ -3,16 +3,11 @@ import Select from 'react-select';
 import ContentEditable from 'react-contenteditable';
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box } from '@chakra-ui/react'
 import { MinusIcon, AddIcon,} from '@chakra-ui/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { updateList, deleteList } from '../../../Services/listService';
 import { getUserInfo } from '../../../Services/profileService';
 
 import './MyListItem.css';
-
-library.add(faTrash)
 
 function MyListItem(props) {
   const [myListName, setMyListName] = useState('');
@@ -78,8 +73,7 @@ function MyListItem(props) {
                 <h1 className='list-recipient'>{myListName}</h1>
                 <h2 className='recipient-username'>{myListUsername}</h2>
               </Box>
-              <button className="trash-btn" onClick={removeList}>trash
-                  {/* <FontAwesomeIcon icon="fa-solid fa-trash" title="delete list"></FontAwesomeIcon> */}
+              <button className="trash-btn" onClick={removeList}>&#x1F5D1;
               </button>
               {isExpanded ? (
                 <MinusIcon fontSize='12px' className="plus-minus-btn" />

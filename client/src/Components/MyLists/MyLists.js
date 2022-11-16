@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFileCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 import MyListItem from './MyListItem/MyListItem';
-import { getAllLists, addToMyLists, getListsByUserId } from '../../Services/listService';
+import { addToMyLists, getListsByUserId } from '../../Services/listService';
 import { getUserInfo } from '../../Services/profileService';
 
 import './MyLists.css';
@@ -14,24 +14,19 @@ library.add(faFileCirclePlus)
 const MyLists = () => {
   const [allMyLists, setAllMyLists] = useState([]);
   const [userId, setUserId] = useState('');
-  // const [newList, setNewList] = useState('');
 
   useEffect(() => {
     getUserId();
-    getListsByUserId(userId).then(lists => setAllMyLists(lists))
+    getListsByUserId(userId).then(lists => setAllMyLists(lists));
   }, []);
 
   async function getUserId() {
     const accessToken = localStorage.getItem('accessToken');
     const fetchedUser = await getUserInfo(accessToken);
-    setUserId(fetchedUser._id)
+    await setUserId(fetchedUser._id)
   }
 
   async function createNewList() {
-    // setAllMyLists((allMyLists) => {
-    //   return [...allMyLists, newList]
-    // })
-    // const createdBy = userId;
     await addToMyLists(userId);
     getListsByUserId(userId).then(lists => {setAllMyLists(lists)})
   };
@@ -59,7 +54,6 @@ const MyLists = () => {
      </div>
   )
  }
-
 };
 
 export default MyLists;

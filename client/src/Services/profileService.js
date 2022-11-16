@@ -1,5 +1,21 @@
 const BASEurl = 'http://localhost:3333';
 
+export const getAllUsers = async () => {
+  try {
+    const result = await fetch(`${BASEurl}/allprofiles`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    const user = await result.json();
+    return user;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export const getUserInfo = async (userId) => {
   try {
     const result = await fetch(`${BASEurl}/profile`, {

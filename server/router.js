@@ -3,6 +3,7 @@ const router = new Router();
 const profile = require('./controllers/profile');
 const lists = require('./controllers/lists')
 
+router.get('/allprofiles', profile.getAllProfiles);
 router.get('/profile', profile.getProfileInfo);
 router.post('/profile', profile.insertProfile);
 router.put('/profile', profile.updateProfile);

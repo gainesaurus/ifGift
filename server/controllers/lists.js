@@ -34,7 +34,6 @@ exports.findByIdAndUpdate = async (ctx) => {
 
 exports.deleteList = async (ctx) => {
   try {
-    console.log(ctx.params.id)
     await MyList.findOneAndRemove({_id: ctx.params.id})
     ctx.status = 200;
   } catch (error) {
