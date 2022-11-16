@@ -13,12 +13,20 @@ function MyListItem(props) {
   const [myListName, setMyListName] = useState('');
   const [myListUsername, setMyListUsername] = useState('');
   const [myListText, setMyListText] = useState('');
+  // const [created, setCreated] = useState(false)
   const [userId, setUserId] = useState('');
   const listRef = useRef();
 
   useEffect(() => {
     getUserId();
+    getListInfo();
   }, []);
+
+  function getListInfo() {
+    setMyListName(props.title);
+    setMyListText(props.text);
+    setMyListUsername(props.username);
+  }
 
   function handleMyListNameChange(e) {
     setMyListName(e.target.value);
@@ -45,7 +53,6 @@ function MyListItem(props) {
   }
 
   const removeList = async () => {
-    console.log(props.myList._id)
     deleteList(props.myList._id);
     const newLists = props.allMyLists.filter(list => list._id !== props.myList._id)
     props.setAllMyLists(newLists);

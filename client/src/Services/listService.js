@@ -15,7 +15,6 @@ export const getListsByUserId = async (userId) => {
 };
 
 export const addToMyLists = async (userId) => {
-  console.log(userId);
   try {
     const result = await fetch(`${BASEurl}/mylists/${userId}`, {
       method: 'POST',

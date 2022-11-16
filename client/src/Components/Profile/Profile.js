@@ -9,7 +9,7 @@ import './Profile.css';
 
 import ProfileLists from './ProfileLists/ProfileLists';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import { getUserInfo } from '../../Services/profileService';
+import { getUserInfo, addUser } from '../../Services/profileService';
 
 library.add(faPen)
 
@@ -21,8 +21,14 @@ const Profile = () => {
 
 
   useEffect(() => {
+    verifyUser(user);
     getUserData();
   }, []);
+
+  const verifyUser = async (user) => {
+    const currentUser = await addUser({email: user.email});
+    localStorage.setItem('accessToken', currentUser.token);
+  } 
 
   const getUserData = async () => {
     const accessToken = localStorage.getItem('accessToken');

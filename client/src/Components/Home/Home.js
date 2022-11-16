@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { addUser } from '../../Services/profileService';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -6,7 +6,6 @@ import './Home.css';
 
 const Home = () => {
   const {user} = useAuth0();
-  // const [recentLists, setRecentLists] = useState([]);
 
   
   useEffect(() => {
@@ -17,10 +16,6 @@ const Home = () => {
     const currentUser = await addUser({email: user.email});
     localStorage.setItem('accessToken', currentUser.token);
   } 
-  
-  // useEffect(() => {
-  //   getRecentLists().then(lists => setRecentLists(lists));
-  // }, []);
 
   return (
     <div>

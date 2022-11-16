@@ -16,8 +16,7 @@ const MyLists = () => {
   const [userId, setUserId] = useState('');
 
   useEffect(() => {
-    getUserId();
-    getListsByUserId(userId).then(lists => setAllMyLists(lists));
+    getUserId().then(getListsByUserId(userId).then(lists =>  setAllMyLists(lists), console.log('LOG', allMyLists)));
   }, []);
 
   async function getUserId() {
@@ -39,7 +38,7 @@ const MyLists = () => {
        <button className="create-list-btn" onClick={createNewList}><FontAwesomeIcon icon="fa-solid fa-file-circle-plus" /></button>
        <h1 className="container-title">MyLists</h1>
        {allMyLists.map((list) => (
-         <MyListItem key={list._id} myList={list} allMyLists={allMyLists} setAllMyLists={setAllMyLists}/>
+         <MyListItem key={list._id} myList={list} id={list._id} title={list.title} username={list.userName} text={list.text} allMyLists={allMyLists} setAllMyLists={setAllMyLists}/>
        ))}
      </div>
      )

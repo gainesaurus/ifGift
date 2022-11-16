@@ -22,7 +22,7 @@ function ProfileForm () {
     const giftPref = giftPreference;
     const newProfile = { name, userName, pronouns, email, address, birthday, giftPref };
     await updateUser(newProfile);
-    navigate('/profile');
+    navigate('/');
   }
 
   const giftPrefHandler = async (e) => {
