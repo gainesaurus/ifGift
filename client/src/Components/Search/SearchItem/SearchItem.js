@@ -1,14 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
-import { getUserInfo } from '../../../Services/profileService';
 
 import './SearchItem.css';
 
 library.add(faUserPlus)
-
-
 
 
 const SearchItem = (props) => {

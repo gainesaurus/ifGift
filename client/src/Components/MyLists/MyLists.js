@@ -16,7 +16,7 @@ const MyLists = () => {
   const [userId, setUserId] = useState('');
 
   useEffect(() => {
-    getUserId().then(getListsByUserId(userId).then(lists =>  setAllMyLists(lists), console.log('LOG', allMyLists)));
+    getUserId().then(getListsByUserId(userId).then(lists =>  setAllMyLists(lists)));
   }, []);
 
   async function getUserId() {

@@ -13,7 +13,6 @@ function MyListItem(props) {
   const [myListName, setMyListName] = useState('');
   const [myListUsername, setMyListUsername] = useState('');
   const [myListText, setMyListText] = useState('');
-  // const [created, setCreated] = useState(false)
   const [userId, setUserId] = useState('');
   const listRef = useRef();
 
